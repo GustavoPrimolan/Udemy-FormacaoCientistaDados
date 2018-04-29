@@ -82,19 +82,19 @@ Visualização, Gráficos e Dashboards
 
 <h2>Conceitos Geráis</h2>
 
-Estatística
-- Ciência que usa de teorias em experimentos e observações para o estudo destes
+Estatística:
+- Ciência que usa de teorias em experimentos e observações para o estudo destes.
 	- Descritiva: Organizar, Demonstrar e Resumir Dados.
 	- Probabilidade: Analisar situações sujeitas ao acaso.
 	- Inferência: Obter respostas sobre um fenômeno com dados representativos.
 
-Observação e experimento
+Observação e experimento:
 - Observação: Estudo em que os elementos analisados não são afetados (pesquisa).
 	Ex: Pesquisa de intenção de votos.
 - Experimentos: Condições ou tratamentos são impostas a grupos, para avaliar o resultado.
 	Ex: Interfere nas condições.
 
-Variáveis
+Variáveis:
 - Quantitativa - Numéricas
 	- Contínuas: Valores reais, podem assumir qualquer intervalo.
 	- Discretas: Números fixos, inteiro e num intervalo.
@@ -121,3 +121,118 @@ Conceitos
 		- Alguns casos é utilizado.
 
 Amostra é diferente de população.
+
+Porque Amostra?
+- Pode ser caro ou impossível inferir sobre toda a população (censo).
+
+É possível inferir sobre uma amostra
+* Uma amostra feita corretamente deve representar as mesmas características da população de onde foi retirada.
+* Se ela não representa a população, dizemos que ela é enviesada.
+
+Enviesamento
+* Você subestima ou superestima o parâmetro da população. Resultados acima ou abaixo do esperado.
+* Causas:
+	* Pesquisa de pessoas próximas ou de fácil acesso.
+	* Pesquisas pela Internet.
+	* Sem uso de mecanismo de seleção aleatório.
+
+"Custo" da Amostra:
+* Margem de Erro e Nível de Confiança.
+* Variação: Amostrar diferentes podem apresentar resultados diferentes.
+* Podemos "medir" a variação esperada.
+
+Amostra??
+* Custo/benefício - 
+	- As vezes com uma proporção menor, é conseguido um resultado melhor.
+	- Vai necessitar de técnicas de amostragem mesmo se trabalhar com toda população.
+* Separação da população para teste/treino/validação.
+	- Necessário fazer alguma técnica.
+* Experimentos diferentes.
+
+
+Principais tipos de amostras
+* Aleatória Simples.
+* Estratificada.
+* Sistemática.
+* Por Unidade Monetária.
+
+
+Amostras Aleatórias Simples
+* Um determinado número de elementos é retirado da população de forma aleatória.
+* Todos os elementos da população alvo do processo de amostragem, devem ter as mesmas chances de serem selecionados para fazer parte da amostra.
+
+<img src="imgs/03.PNG"/>
+
+Duas formas de se trabalhar com Amostras Aleatórias Simples
+* Com reposição.
+	- Continua sendo parte da população e poderá ser selecionado novamente.
+	- Utilização: Olimpiada de jogadores para fazer exame anti-dopping, se eles não puderem ser sorteados de novo, eles estariam livres para fazerem a utilização, por conta disso eles podem ser selecionados de novo.
+
+* Sem reposição.
+	- Não faz parte da população e não poderá ser selecionado novamente.
+	- Utilização: Opinião de pesquisa de votos, onde só contará apenas uma vez.
+
+
+Amostra Estratificada
+* As vezes as populações estão divididas nos chamados estratos.
+	- Separam grupos em categorias.
+
+
+Amostra Sistemática
+* Neste tipo de amostragem, é escolhido um elemento aleatório, e a partir daí, a cada N elementos um novo membro é escolhido.
+
+<img src="imgs/04.PNG"/>
+
+Amostragem por Unidade Monetária
+
+* Total de Registros: 50
+* Total de Débitos: 108.465,00
+* Calcula o intervalo da amostra:
+	* Valor Total/registros = 2.169.
+* Ordena por Clientes.
+* Seleciona um número aleatório entre 1 e 2.169.
+
+<img src="05.PNG"/>
+
+Funções no R
+* sample()
+	- Função utilizada para amostras simples.
+* strata()
+	- Função utilizada para amostras estatificada
+* S.SY()
+	- Gerar amostra sistemática.
+
+<h2>Amostragem - Aula em R</h2>
+
+```html
+
+#DATASET FAMOSO QUE JÁ VEM COM O R
+iris
+
+dim(iris)
+
+#PRIMEIRO PARÂMETRO DO SAMPLES É ONDE ELE VAI BUSCAR
+#OS DADOS PARA GERAR A AMOSTRA
+#VAI GERAR AMOSTRAS APENAS DE 0 OU 1
+#SEGUNDO PARÂMETRO É QUANTAS AMOSTRAS EU QUERO GERAR
+#QUE SÃO 150
+#TERCEIRO PARÂMETRO SE PODE TER REPOSIÇÃO OU NÃO
+#QUARTO PARÂEMTRO É A PROBABILIDADE DE GERAR CADA AMOSTRA.
+#FOI FEITO A PROBABILIDADE IGUAL AOS DOIS VALORES
+
+amostra = sample(c(0,1), 150, replace=TRUE, prob=c(0.5,0.5))
+
+#QUANTIDADE DE AMOSTRAS COM O VALOR = 1
+length(amostra[amostra==1])
+
+#QUANTIDADE DE AMOSTRAS COM O VALOR = 0
+length(amostra[amostra==0])
+
+#SEMENTE DE ALEATÓRIEDADE QUE PODE REPETIR O EXPERIMENTO
+set.seed(2345)
+
+sample(c(100), 1)
+
+```
+
+<img src="imgs/06.PNG"/>
