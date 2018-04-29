@@ -192,7 +192,7 @@ Amostragem por Unidade Monetária
 * Ordena por Clientes.
 * Seleciona um número aleatório entre 1 e 2.169.
 
-<img src="05.PNG"/>
+<img src="imgs/05.PNG"/>
 
 Funções no R
 * sample()
