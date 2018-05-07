@@ -410,3 +410,74 @@ summary(jogadores)
 
 <h2>Usando a Estatística a seu favor</h2>
 
+<img src="imgs/15.PNG"/>
+
+* Como a média é sensível a outliers, você pode dizer que o valor do mercado é diferente dependendo se você pega o valor da mediana ou da média.
+
+
+<h2>Probabilidade</h2>
+
+* Probabilidade (P): 0 <= P <= 1
+* P = 1: Evento certo.
+* P = 0: Evento impossível.
+* Probabilidade de 50%: 0,5 / 1/2
+* Impossível: -0,5 / -20% / 2/1
+
+
+Conceitos
+* Experimento: o que está sendo estudado.
+* Espaço Amostral: todas as possibilidades de ocorrência do evento.
+* Evento: resultados ocorridos
+* Exemplo:
+	* Experimento: jogar moeda.
+	* Espaço Amostral: Cara ou Coroa.
+	* Evento: Coroa.
+
+* Eventos Excludentes: quando não podem ocorrer ao mesmo tempo.
+	* Exemplo: Jogar um dado e ser 1 e par.
+
+* Eventos Não Excludentes: quando podem ocorrer ao mesmo tempo.
+	* Exemplo: jogar um dado e ser 2 e par.
+
+* Eventos Dependentes: A ocorrência de um evento afeta o outro. Um tem que ocorrer para depois que o outro ocorra.
+* Evento Independentes: A ocorrência de um evento não afeta o outro.
+
+Um único evento
+
+			Ocorrência Esperada
+  P(Probabilidade)  =	-------------------
+			Numero de Eventos Possíveis
+
+Exemplo:
+Jogar uma moeda e dar cara: P = 1/2, P =0,5 ou 50%
+Jogar moeda = Experimento.
+Dar cara = evento.
+
+Jogar um dado e dar 6: P = 1/6, P = 0,16 ou 16%.
+
+Eventos Exludentes
+* Soma-se as probabilidades:
+	* Jogar um dado e ser 1 ou par: 1/6 + 3/6 = 4/6 = 0,66
+
+
+Eventos Não-excludentes
+* Soma-se as probabilidades, diminui-se as sobreposições
+	* Jogar um dado e ser 2 ou par: 1/6 + 3/6 - 1/6 = 3/6 = 0,5
+
+Eventos Independentes
+* Mais de um evento, como eles se relacionam?
+	* Multiplicação.
+
+* Qual a probabilidade de jogar dois dados, e dar 1 e 6: (dois eventos independentes)
+	* 1/6 * 1/6 = 1/36 = 0,027
+
+Eventos dependentes
+* Com 6 cartas na mão (A,2,3,4,5,6), qual a probabilidade de primeiro evento tirar A e no segundo evento tirar 4?
+1/6 * 1/5 = 1/30 = 0,033
+
+Probabilidade a "longo prazo"
+*Jogando um dados "just" 6 vezes, qual a média esperada?
+	* 1 + 2 + 3 + 4 + 5 + 6 / 6 = 3,5
+
+<img src="imgs/16.PNG"/>
+

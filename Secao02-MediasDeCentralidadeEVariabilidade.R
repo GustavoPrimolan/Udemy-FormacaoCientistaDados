@@ -13,3 +13,8 @@ quartis
 quartis[4]
 
 #DESVIO PADRÃO (STANDARD DEVIATION)
+sd(jogadores)
+
+summary(jogadores)
+
+
