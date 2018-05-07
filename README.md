@@ -534,7 +534,6 @@ Convenções
 * X = Total de sucesso esperado do experimento.
 * p = Probabilidade de sucesso.
 * n = número de experimentos.
-
 * 1-p = probabilidade de fracassos.
 
 Fórmula para calcular a probabilidade de uma distribuição binomial:
