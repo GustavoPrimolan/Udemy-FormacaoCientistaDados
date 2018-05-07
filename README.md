@@ -476,8 +476,67 @@ Eventos dependentes
 1/6 * 1/5 = 1/30 = 0,033
 
 Probabilidade a "longo prazo"
-*Jogando um dados "just" 6 vezes, qual a média esperada?
+*Jogando um dados "justo" 6 vezes, qual a média esperada?
 	* 1 + 2 + 3 + 4 + 5 + 6 / 6 = 3,5
 
 <img src="imgs/16.PNG"/>
 
+* Como são poucas vezes que o dado será jogado, o valor da média de dispersa muito, por conta disso uma simulação jogando mais vezes é feita, não tendo esse valor dispersado.
+* Quando temos muitos eventos (mais dados), tendemos a encontrar a probabilidade que esperávamos. Por conta disso, a probabilidade é algo que se estuda a longo prazo.
+
+<img src="imgs/17.PNG"/>
+
+
+<h2>Entendo Distribuição</h2>
+
+* Usado principalmente na teoria da probabilidade.
+* Comportamento de dados aleatórios.
+
+<img src="imgs/18.PNG"/>
+
+Não é o caso da imagem:
+* 68% estão a +- 1 Desvio Padrão da Média.
+* 30% estão a +- 2 Desvio Padrão da Média.
+* Etc...
+
+
+- O dado tem um determinado perfil, e tendo esse perfil é possível aplicar técnicas estátisticas iguais para todos os dados.
+
+<h2>Distribuição Binomial</h2>
+
+O que é?
+* Distribuição de Probabilidade Discreta.
+* Probabilidade da ocorrência de evento, desde que sejam eventos discretos e determinados pré-requisitos sejam atendidos.
+
+Pré-requisitos
+* Número Fixo de Experimentos.
+* Cada experimento pode ter 2 resultados apenas: sucesso ou fracasso.
+* A probabilidade de sucesso deve ser a mesma em cada experimento.
+* Os experimentos são independentes.
+
+Exemplo:
+* Se eu jogar uma moeda 5 vezes. Qual a probabilidade de dar cara 3 vezes?
+
+* Número Fixo de Experimentos? 5 vezes
+* Cada experimento pode ter 2 resultados apenas: sucesso ou fracasso? Cara ou coroa.
+* A probabilidade de sucesso deve ser a mesma em cada experimento? Sim.
+* Os experimentos são independentes? Sim.
+
+Exemplo:
+* Um cesto tem 10 frutas que pesam entre 3 e 5 quilos. Qual a probabilidade de eu retirar duas frutas, uma de 4 quilos e outra de 3 quilos?
+
+* Número Fixo de Experimentos? Sim.
+* Cada experimento pode ter 2 resultados apenas: sucesso ou fracasso? Não.
+* A probabilidade de sucesso deve ser a mesma em cada experimento? Não.
+* Os experimentos são independentes? Não.
+
+Convenções
+* X = Total de sucesso esperado do experimento.
+* p = Probabilidade de sucesso.
+* n = número de experimentos.
+
+* 1-p = probabilidade de fracassos.
+
+Fórmula para calcular a probabilidade de uma distribuição binomial:
+
+<img src="imgs/19.PNG"/>
