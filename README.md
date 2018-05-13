@@ -539,3 +539,50 @@ Convenções
 Fórmula para calcular a probabilidade de uma distribuição binomial:
 
 <img src="imgs/19.PNG"/>
+
+Exemplo:
+
+* Se eu jogar uma moeda 5 vezes. Qual a probabilidade de dar cara 3 vezes?
+* X = 3.
+* p = 0,5.
+* n = 5.
+
+<img src="imgs/20.PNG"/>
+
+
+Exemplo: Se eu passar 4 sinais de quatro tempos cada. Qual a probabilidade de eu pegar 0, 1, 2, 3 e 4 sinais verdes?
+
+* P(0) = Probabilidade de encontrar nenhum sinal vermelho = 0,316406.
+* P(1) = Probabilidade de encontrar 1 sinal verde = 0,421875.
+* P(2) = 0,210938.
+* P(3) = 0,046875.
+* P(4) = 0,003906.
+A soma de todas as probabilidades possíveis (estudando as probabilidades de todo o espaço amostral) é igual a 1.
+
+Exemplo:
+
+Se você fizer a prova de um concurso com 12 questões. "Chutando" todas as questões, qual a probabilidade de acertar 7 questões? (4 alternativas cada questão).
+X = 7 certos.
+p = 0,25.
+n = 12.
+
+<img src="imgs/21.PNG"/>
+ 
+
+É possível tanto resolver o problema através do cálculo como na imagem acima como através de uma tabela de distribuição binomial.
+
+<img src="imgs/22.PNG"/>
+
+
+Distribuição Binomial ou Cálculo "Manual"?
+
+* Qual a probabilidae de passar em dois sinais de dois tempo e os dois estarem verdes?
+* Fazendo manualmente: 1/2 * 1/2 = 0,25.
+* Executando a distribuição binomial no R.
+```r
+dbinom(2,2,0.5)
+```
+[1] 0.25
+
+
+
