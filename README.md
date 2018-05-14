@@ -584,5 +584,172 @@ dbinom(2,2,0.5)
 ```
 [1] 0.25
 
+<h2>No R</h2>
 
+```r
+#SE JOGAR MOEDA 5 VEZES QUAL A PROBABILIDADE DE DAR CARA 3 VEZES
+#PRIMEIRO PARÂMETRO É O X
+#SEGUNDO PARÂMETRO É O n
+#TECEIRO PARÂMETRO É O p
+dbinom(3, 5, 0.5)
+
+#4 SENAIS DE 4 TEMPOS, PROBABILIDADE DE PEGAR 0, 1, 2, 3, 4 SINAIS VERDES
+dbinom(0, 4, 0.25)
+dbinom(1, 4, 0.25)
+dbinom(2, 4, 0.25)
+dbinom(3, 4, 0.25)
+dbinom(4, 4, 0.25)
+
+#CALCULA A PROBABILIDADE DE TODO O ESTAPÇO AMOSTRAL
+pbinom(4, 4, 0.25)
+
+#PROVA CONCURSO DE 12 QUESTÕES. ACERTAR 7 QUESTÕES E CADA QUESTÕES TEM 4 ALTERNATIVAS
+dbinom(7, 12, 0.25)
+```
+
+
+<h2>Distribuição Normal</h2>
+
+* Distribuição Simétrica.
+* Distribuição em que a média dos dados se encontram ao centro.
+* Encontrar relativamente a mesma quantidade de dados acima e abaixo do média
+
+
+<img src="imgs/23.PNG"/>
+
+Teorema Central do Limite
+* Conforme o tamanho da amostra aumenta, a distribuição das médias amostrais se aproxima cada vez mais da distribuição normal.
+* Independente de como os dados estão distribuídos, suas médias estaão normalmente distribuídas.
+
+Distribuição Normal Padrao [Z]
+* Mostra o número de desvios padrões que o valor está acima ou abaixo da média (score z ou valor z).
+* Média Zero.
+* Desvio Padrão 1.
+* Usa-se uma fórmula para calcular a probabilidade de seus dados com relação a tabela Z.
+
+<img src="imgs/24.PNG"/>
+
+<img src="imgs/25.PNG"/>
+
+Exemplo de cálculo com distribuição normal.
+* Existe um conjunto de objetos em uma cesta, cujos pesos são normalmente distribuídos com média = 8 e desvio padrão igual a 2.
+* 1 - Qual a chance de se tirar um objeto pesando menos de 6 quilos?
+
+Primeiro calcula-se o Z e depois é verificado na tabela de distribuição normal.
+<img src="imgs/26.PNG"/>
+
+15,8%
+
+Outro exemplo:
+* Existe um conjunto de objetos em uma cesta, cujos pesos são normalmente distribuídos com média = 8 e desvio padrão igual a 2.
+* 2 - Qual a chance de se tirar um objeto pesando mais de 8 quilos?
+50%
+<img src="imgs/27.PNG"/>
+
+
+* 3 - Qual a chance de tirar um objeto com mais de 10 quilos?
+<img src="imgs/28.PNG"/>
+
+
+
+* 4 - Qual a chance de se tirar um objeto que tenha menos de 10 quilos e mais de 8 quilos?
+<img src="imgs/29.PNG"/>
+
+
+* 5 - Qual a chance de se tirar um objeto que tenha menos de 6 quilos ou mais de 10 quilos?
+<img src="imgs/30.PNG"/>
+
+* 6 - Qual a chance de se tirar um objeto que tenha menos de 4,3 quilos?
+<img src="imgs/31.PNG"/>
+
+
+Distribuição Normal no R
+```r
+#SE A DISTRIBUIÇÃO FOR MENOR QUE A MÉDIA P[X<x]
+pnorm()
+#SE MAIOR P[X>x] SÓ INSERIR O PARÂMETRO lower.tail = FALSE
+
+qnorm()
+
+```
+
+Como saber se a Distribuição dos dados é Normal?
+* Forma mais simples e mais rápida é gerar um Histograma.
+<img src="imgs/32.PNG"/>
+
+
+Outra forma:
+* Gerar um Diagrama de Probabilidade Normal.
+<img src="imgs/33.PNG"/>
+
+Teste de Shapiro-Wilk
+* Teste de Hipótese.
+* HO = Dados estão normalmente distribuídos.
+* Alfa = 0,05 (Normalmente utilizado).
+* Valor de p <= 0,05: rejeita hipótese nula.
+* Valor de p> 0,05: Não é possível rejeitar a hipótese nula
+
+* p-value = 0.001722 [p <= 0,05] - "não normal"
+* p-value = 0.05696 [p > 0,05] - "normal"
+
+<img src="imgs/34.PNG"/>
+
+Qual rigor?
+* Nem sempre os dados precisam ser rigorosamente normais. Dados aproximadamente normais são suficientes para a maioria dos casos.
+
+R
+```r
+#GERA NÚMEROS ALEATÓRIOS NORMAIS DISTRIBUIDOS
+x = rnorm[100]
+#GERA O TESTE DE NORMALIDADE
+qqnorm[x]
+#GERA A LINHA DE MELHOR AJUSTE
+qqline[x]
+#EXECUTA O TESTE PARA VERIFICAR SE OS DADOS ESTÃO NORMAIS E PEGAR O VALOR DE P E COMPARAR COM O ALFA
+shapiro.test[x]
+
+```
+
+<h2>Distribuição Normal no R</h2>
+
+```r
+#MÉDIA = 8 DESVIO PADRÃO = 2. TIRAR OBJETO < 6
+#QUAL OBJETO TIRAR, MÉDIA E DESIVIO PADRÃO (ORDEM DOS PARÂMETROS)
+pnorm(6, 8, 2)
+
+#MEDIA = 8 DESVIO PADRÃO = 2 OBJETO > 6
+pnorm(6, 8, 2, lower.tail=F)
+
+#MESMO RESULTADO DO COMANDO ACIMA
+1 - pnorm(6,8,2)
+
+#MENOS 6 QUILOS OU MAIS DE 10 QUILOS
+pnorm(6,8, 2) + pnorm(10, 8, 2, lower.tail=F)
+
+#QUAL A CHANCE DE SE TIRAR UM OBJETO MENOS DE 10 KG E MAIS DE 8KG
+pnorm(10, 8, 2) - pnorm(8,8,2)
+
+
+#100 VARIÁVEIS ALEATÓRIAS
+x = rnorm(100)
+
+qqnorm(x)
+
+qqline(x)
+
+shapiro.test(x)
+
+```
+
+
+<h2>Estatística Paramétrica</h2>
+* Requer que os dados estejam em conformidade com alguma distribuição.
+* Ex: Distribuição Normal.
+
+Estátistica Não-Paramétrica
+* Quando os dados não estão com conformidade com alguma distribuição.
+* Quando não se conhece a distribuição dos dados.
+
+* A estatística paramétrica oferece menos riscos.
+	* Por exemplo, se os dados estão normalmente distribuídos, um teste de hipótese paramétrico tende a ser mais preciso do que um teste não paramétrico.
 
