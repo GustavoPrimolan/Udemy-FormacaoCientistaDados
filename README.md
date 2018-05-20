@@ -746,10 +746,76 @@ shapiro.test(x)
 * Requer que os dados estejam em conformidade com alguma distribuição.
 * Ex: Distribuição Normal.
 
-Estátistica Não-Paramétrica
+<h2>Estátistica Não-Paramétrica</h2>
 * Quando os dados não estão com conformidade com alguma distribuição.
 * Quando não se conhece a distribuição dos dados.
 
 * A estatística paramétrica oferece menos riscos.
 	* Por exemplo, se os dados estão normalmente distribuídos, um teste de hipótese paramétrico tende a ser mais preciso do que um teste não paramétrico.
 
+
+<h2>Intervalos de Confiança</h2>
+* É possível inferir características de uma população a partir de uma amostra.
+* Porque?
+	* Custo.
+	* Viabilidade.
+	* Etc.
+* Preço: erro padrão / nível de confiança.
+* Riscos: Dados ruins, enviesamento.
+
+Porém...
+* Como estamos utilizando amostra...devemos esperar variação.
+* A primeira amostra pode variar com relação a segunda...
+* A segunda com a relação a terceira etc
+* Mas devemos poder "medir" o quanto pode ser esta variação.
+
+Intervalos de Confiança
+* É o parâmetro mais ou menos a margem de erro estimada.
+* Parâmetro: valor a ser estimado.
+* Margem de erro: Variabilidade, para mais ou para menos.
+* Nível de Confiança: de 80% a 99%.
+* Tamanho da Amostra (n).
+
+<img src="imgs/35.PNG"/>
+Vai existir um percentual de confiança e seu respectivo valor de Z que será utilizado na fórmula.
+
+Em números...
+* Entre 63 e 67% dos entrevistados pretendem votar em Maria, com um nível de confiança de 95%.
+* Parâmetro: Intenção de Voto (Proporção).
+* Nível de Confiança: 95%.
+* Intervalo de Confiança: Entre 63 e 67%.
+* Erro padrão: 1,96.
+* Entrevistados (n): 1000.
+* Margem de Erro: +-2%.
+
+Compensação:
+* Nível de Confiança maior, maior Erro Padrão.
+* Maior Tamnho da Amostra, Menor Erro Padrão.
+
+Tipos de Intervalos de Confiança:
+* Intervalo de Confiança para a média.
+* Intervalo de Confiança para a proporção.
+
+<h2>Intervalo de Confiança para a Média</h2>
+* Queremos estimar o salário médio de um cientista de dados.
+* 100 pesquisados (n).
+* Intervalo de confiança: 95%.
+* O desvio padrão é 1100,00.
+* A média é de R$ 5.800,00.
+* Valor de z* = 1,96.
+* Margem de erro: +- 215,60.
+* O salário médio de um cientista de dados é entre 5.584,40 e 6,015,60 com um nível de confiança de 95%.
+
+<img src="imgs/36.PNG"/>
+
+Intervalo de Confiança para a Média, Aumentando o intervalo de Confiança
+* Queremos estimar o salário médio de um cientista de dados.
+* 100 pesquisados (n)
+* Intervalo de confiança: 99% (era 95).
+* O desvio padrão é 1100,00.
+* A média é de R$ 5.800,00.
+* Valor de z* = 2,58 (era 1,96).
+* Margem de erro: +- 283,8.
+* O salário médio de um cientista de dados é entre 5.516,20 e 6.083,80 com um nível de confiança de 99%.
+
+<img src="imgs/37.PNG"/>
