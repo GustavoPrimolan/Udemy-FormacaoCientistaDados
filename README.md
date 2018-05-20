@@ -819,3 +819,211 @@ Intervalo de Confiança para a Média, Aumentando o intervalo de Confiança
 * O salário médio de um cientista de dados é entre 5.516,20 e 6.083,80 com um nível de confiança de 99%.
 
 <img src="imgs/37.PNG"/>
+
+Troca entre Margem de Erro, Intervalo de Confiança e Amostra
+* Aumentando a margem de erro, é natural que as chances da minha amostra estarem dentro do intervalo, por isso eu tenho um intervalo de confiança maior.
+* Da mesma forma, aumentando n, reduz a chance do efeito acaso, por isso minha margem de erro reduz.
+
+Intervalo de Confiança para a Média:
+Aumentando n - 
+* Queremos estimar o salário médio dos cientistas de dados.
+* 1000 pesquisados (n).
+* Intervalo de confiança: 95%.
+* O desvio padrão é 1100,00.
+* A média é de R$ 5.800,00.
+* Valor de z* = 1,96.
+* Margem de erro: +-68,18.
+* O salário médio de um cientista de dados é entre 5.731,82 e 5.868,18 com um nível de confiança de 95%.
+
+<img src="imgs/38.PNG"/>
+
+<h2>Intervalo de Confiança para a Proporção</h2>
+* Queremos estimar a proporção de eleitores que pretendem votar em Maria para prefeito.
+* 1000 pesquisados (n).
+* Intervalo de confiança: 95%.
+* 650 Responde Maria. p = 650/1000 = 0,65.
+* 330 Responde João. p = 330/1000 = 0,33.
+* 20 Não sabe /Nenhum. p - 20/1000 = 0,02.
+* Valor de z* = 1,96.
+
+Entre 62 e 68% dos entrevistados pretendem votar em Maria, com um nível de confiança de 95%.
+<img src="imgs/39.PNG"/>
+
+<h2>Testes de Hipótese</h2>
+* Confirmar ou negar uma premissa usando uma amostra.
+* Esta premissa usa um parâmetro, por exemplo:
+	* 56% dos brasileiros não gostam de estatística.
+* Encontrar diferença não é tudo, é preciso saber se esta diferença é estatisticamente significante.
+* Só é feito por conta das amostras, pois se for feita com a população não haverá sentido.
+
+<img src="imgs/40.PNG"/>
+
+Convensões:
+* Score padrão: erros padrão que seus dados estão abaixo ou acima da média.
+* A versão padronizada de sua estatística é chamada de "estatística de teste".
+* Olha na versão padronizada de Z. se sua estatística de teste estiver próxima de zero ou num interevalo onde os resultados devem estar, então não se pode rejeitar H0.
+* Se estiver próximo a cauda, então podemos rejeitar H0.
+
+Alfa e valor-p
+
+<img src="imgs/41.PNG"/>
+
+Etapas para se fazer um testes de Hipóteses:
+1. Definir o tamanho da sua amostra.
+2. Coletar dados.
+3. Calcular a média e o desvio padrão.
+4. Definir as duas hipóteses: H0 e Ha.
+5. Definir seu alfa.
+6. Padronizar seus dados gerando a estatística de teste.
+7. Encontrar o valor-p na tabela Z.
+8. Comparar com seu alfa.
+9. Emitir seu veredito.
+
+<img src="imgs/42.PNG"/>
+<img src="imgs/43.PNG"/>
+<img src="imgs/44.PNG"/>
+
+Erros cometidos em Testes de Hipótese:
+* Erro do tipo 1: rejeitar H0 quando não deveria.
+	* Chance de ocorrer igual a Alfa.
+* Erro do tipo 2: Não rejeitar H0 quando deveria ter rejeitado.
+	* Depende do tamanho da amostra.
+
+* Ocorrem devido ao acaso.
+
+Trocas
+<img src="imgs/45.PNG"/>
+
+Ideal:
+* Amostra grande.
+* Alfa pequeno.
+
+<h2>Distribuição T de Student</h2>
+* Utilizada quando a amostra é pequena (menor que 30).
+* E não se conhece o desvio padrão da população.
+* Custo: Maior variabilidade (por exemplo, em um teste de hipótese).
+
+* Tendência maior de encontrar valores nas caudas (caudas maiores).
+* Se n >= 30, se assemelha a uma distribuição normal.
+
+Grau de liberdade: corresponde ao tamanho da amostra (n-1)
+Se n=15, t14
+
+* Você pode usar T de Student para:
+	* Calcular probabilidades.
+	* Calcular Intervalos de Confiança.
+	* Executar testes de Hipóteses.
+* Calculamos o valor de t.
+* Consultamos a tabela de distribuição t ou
+* Usamos o R para calcular a probabilidade.
+
+<img src="imgs/46.PNG"/>
+<img src="imgs/47.PNG"/>
+
+
+Alterando o exemplo:
+Uma pesquisa mostra que cientistas de dados ganham R$ 75,00 por hora. Uma amostra de 9 cientistas é selecionado é perguntando o salário. O desvio padrão é 10. Qual a probabilidade do salário ser maior que R$ 80 a hora?
+
+u0 = 75 (Média da população).
+S = 10 (Desvio Padrão da amostra).
+n = 9 (Tamanho da amostra).
+t0 = 8 (Graus de liberdade).
+
+<img src="imgs/48.PNG"/>
+
+Distribuição T de Student no R
+```r
+#P[X<x]
+pt()
+#P[X>x] = lower.tail=FALSE
+```
+
+Distribuição T de Student no R
+
+```r
+#Média = 75, AMOSTRA = 9 E DESVIO PADRÃO 10
+# < 80  t = 1,5
+#Segundo parâmetro = Graus de Liberdade
+#8 pois amostra é 9, então n - 1
+pt(1.5, 8)
+
+pt(1.5, 8, lower.tail=F)
+
+pt(1.5, 8) + pt(1.5, 8, lower.tail=F) # = 1
+# > pt(1.5, 8)
+# [1] 0.9139984
+# > pt(1.4, 8, lower.tail=F)
+# [1] 0.09953969
+# > pt(1.5, 8, lower.tail=F)
+# [1] 0.08600165
+# > pt(1.5, 8) + pt(1.5, 8, lower.tail=F)
+# [1] 1
+
+```
+
+<h2>Questionário Estatística I</h2>
+Pergunta 1:
+Executando a função sample, como o código abaixo:
+sample(2, 10, replace=F, prob=c(0.2,0.8))
+obtemos um erro. Qual alternativa melhor explica o motivo de ter ocorrido o erro?
+R: Estamos tentando gerar 10 números aleatórios de 2 números, sem reposição.
+<br/>
+Pergunta 2: 
+Dado o conjunto de dados:
+22, 10, 12, 14, 13, 15.
+Qual alternativa apresentta a reposta correta para a mediana destes dados?
+R: 13.5
+<br/>
+```r
+x = c(22, 10, 12, 14, 13, 15)
+median(x)
+[1] 13.5
+```
+<br/>
+Pergunta 3:
+Em um baralho comum, qual a probabilidade de você escolher uma carta aleatoriamente, e ser do naipe Espadas?
+R: 25%.
+13 chances em 52 13/52 = 0,25.
+<br/>
+Pergunta 4:
+Jogando uma moeda 10 vezes, quais as chances de dar cara 8 vezes?
+R: 4%.
+dbinom(8, 10, 0.5)
+<br/>
+Pergunta 5:
+Os preços de diversos modelos de celulares no estoque de uma loja são normalmente distribuídos, com média = 1250 e desvio padrão igual a 480.
+Qual a chance de escolher aleatoriamente um aparelho que custe menos que 1500?
+R: 69%
+```r
+pnorm(1500, 1250, 480)
+[1]0.6987586
+```
+<br/>
+Pergunta 6:
+Uma notícia informa que entre 34% e 38% dos entrevistados não gostam de peixe.
+Qual a margem de erro desta pesquisa?
+R: +- 2%.
+<br/>
+Pergunta 7:
+Qual afirmação é falsa com relação a teste de hipótese?
+R: A hipótese alternativa é por padrão, verdadeira.
+<br/>
+Pergunta 8:
+Das condições para o uso da distribuição T de Student, qual é falsa?
+R: Se conhece o desvio padrão da população.
+<br/>
+Pergunta 9:
+Qual opção abaixo, não é um alternativa para analisar se uma distribuição de dados está normalmente distribuída?
+R: Diagrama de dispersão.
+<br/>
+Pergunta 10:
+Qual alternativa abaixo melhor descreve o papel da estatística descritiva?
+R: Demonstra dados através de resumos e gráficos.
+
+
+
+
+
+
+
+
